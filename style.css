@@ -1,3 +1,20 @@
 body {
 	background-color: yellow;
 }
+
+#wrapper {
+	width: 960px;
+	min-height: 400px;
+	background: #fff;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+td {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
