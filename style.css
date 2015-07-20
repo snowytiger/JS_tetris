@@ -1,3 +1,11 @@
 body {
 	background-color: yellow;
 }
+
+#wrapper {
+	width: 960px;
+	min-height: 400px;
+	background: #fff;
+	margin: 0 auto;
+	margin-top: 40px;
+}
