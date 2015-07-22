@@ -22,6 +22,12 @@ tetris.fillCells = function(coordinates){
   }
 }
 
+//Variable to store current coordiates
+tetris.currentCoor = [{row:1,col:1},
+                      {row:1,col:2},
+                      {row:2,col:1},
+                      {row:2,col:2}];
+
 $(document).ready(function(){
   
   tetris.drawPlayField();
