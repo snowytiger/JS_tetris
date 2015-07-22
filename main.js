@@ -29,6 +29,6 @@ tetris.currentCoor = [{row:1,col:1},
                       {row:2,col:2}];
 
 $(document).ready(function(){
-  
   tetris.drawPlayField();
+  tetris.fillCells(tetris.currentCoor,'black');
 })
