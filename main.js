@@ -13,6 +13,15 @@ tetris.drawPlayField = function(){
  }
 }
 
+//Fill the cells
+tetris.fillCells = function(coordinates){
+  for(var i=0;irow = coordinates[i].row;
+    var col = coordinates[i].col;
+    var $coor = $('.'+row).find('#'+col);
+    $coor.attr('bgcolor','black');
+  }
+}
+
 $(document).ready(function(){
   
   tetris.drawPlayField();
