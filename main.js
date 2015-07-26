@@ -175,7 +175,29 @@ tetris.shapeToCoor = function(shape,origin){
 }
 
 /* Definera figurer OCH hur varje figur ska rotera när upp-tangenten trycks ner */
+ 
+//Drop shape by one row -----------------------------------------------
+tetris.drop = function(){
+	var reverse = false;
 
+	this.fillCells(this.currentCoor,'');
+	this.origin.row++;
+	for(var i = 0; i < this.currentCoor.length; i++){
+		this.currentCoor[i].row++;
+		if(this.currentCoor[i].row>21){
+			reverse = true;
+		}
+	}
+
+	if(reverse){
+		for(var i=0;i<this.currentCoor.length;i++){
+			this.currentCoor[i].row--;
+		}
+		this.origin.row--;
+	}
+
+	this.fillCells(this.currentCoor,'black');
+}
 
 // document.ready function - ska alltid vara längst ner ----------------
 $(document).ready(function(){
@@ -194,5 +216,9 @@ $(document).ready(function(){
 			tetris.rotate();
 		}
 	})
+
+	var gravity = setInterval(function(){
+		tetris.drop();
+	},500); // Ändra hastigheten här, i millisekunder
 
 })
