@@ -56,14 +56,16 @@ tetris.move = function(direction){
 		}
 	}
 
-	//move origin
+	//move origin - en fixad bugg --------
 	if(direction === 'right'){
 		this.origin.col++;
 	} else if (direction === 'left'){
 		this.origin.col--;
 	}
+	/* Fixar så att tetris-figuren håller sig på plats och
+	inte förflytttar sig till sin orginalposition dvs centerad på "playfield"
+	+ håller sig inom ramarna och inte går utanför */
 
-	
 	this.fillCells(this.currentCoor,'black');
 
 	if(reverse && direction === 'left'){
@@ -73,7 +75,7 @@ tetris.move = function(direction){
 	}
 }
 
-//Rotate current shape ---------------------------------------
+//Rotera nuvarande figur + efterföljande figurer -----------------------
 tetris.rotate = function(){
 	var lastShape = this.currentShape;
 	this.fillCells(this.currentCoor,'');
@@ -172,6 +174,8 @@ tetris.shapeToCoor = function(shape,origin){
 	} 
 }
 
+/* Definera figurer OCH hur varje figur ska rotera när upp-tangenten trycks ner */
+
 
 // document.ready function - ska alltid vara längst ner ----------------
 $(document).ready(function(){
@@ -180,7 +184,7 @@ $(document).ready(function(){
 	tetris.currentCoor = tetris.shapeToCoor(tetris.currentShape,tetris.origin);
 	tetris.fillCells(tetris.currentCoor,'black');
 
-	$(document).keydown(function(e){
+	$(document).keydown(function(e){ // Känner av piltangenterna
 		console.log(e.keyCode);
 		if(e.keyCode === 39){
 			tetris.move('right');
