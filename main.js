@@ -191,13 +191,15 @@ tetris.drop = function(){
 		this.emptyFullRow();
 		this.spawn();
 	}
-	
+
 }
+
 
 //Spawn random shape -------------------------------------------------
 tetris.spawn = function(){
 	var random = Math.floor(Math.random()*7);
 	var shapeArray = ['L','J','I','O','S','T','Z'];
+
 	this.currentShape = shapeArray[random];
 	this.origin = {row:2,col:5};
 	this.currentCoor = this.shapeToCoor(this.currentShape,this.origin);
@@ -219,7 +221,7 @@ tetris.ifReverse = function(){
 	return false;
 }
 
-//Empty full row
+//Empty full row -------------------------------------------------
 tetris.emptyFullRow = function(){
 	var drops = 0;
 	for (var i=21; i>=0;i--){
