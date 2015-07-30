@@ -15,7 +15,7 @@ tetris.drawPlayField = function(){
 }
 
 //Variable to store current coordinates --------------------------
-tetris.origin = {row:5,col:5};
+tetris.origin = {row:2,col:5};
 tetris.currentShape = 'L';
 tetris.currentCoor;
 
@@ -197,7 +197,22 @@ tetris.drop = function(){
 	}
 
 	this.fillCells(this.currentCoor,'black');
+
+	if(reverse){
+		this.spawn();
+	}
 }
+
+//Spawn random shape -------------------------------------------------
+tetris.spawn = function(){
+	var random = Math.floor(Math.random()*7);
+	var shapeArray = ['L','J','I','O','S','T','Z'];
+	this.currentShape = shapeArray[random];
+	this.origin = {row:2,col:5};
+	this.currentCoor = this.shapeToCoor(this.currentShape,this.origin);
+}
+
+/* Slumpar fram nya tetris-figurer när den nuvarande har nått botten */
 
 // document.ready function - ska alltid vara längst ner ----------------
 $(document).ready(function(){
@@ -217,6 +232,7 @@ $(document).ready(function(){
 		}
 	})
 
+	8
 	var gravity = setInterval(function(){
 		tetris.drop();
 	},500); // Ändra hastigheten här, i millisekunder
