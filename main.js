@@ -1,3 +1,8 @@
+var players = JSON.parse(localStorage.getItem("players"));
+if (! players) {
+    players = [];}
+
+//Global stuff --------------------------------------------------
 var name = "";
 var points = 0;
 var gravity;
@@ -201,11 +206,20 @@ tetris.drop = function(){
 
 	if(reverse){
         // game over
+        // lägg till localstorage
+
         if (this.origin.row == 2) {
             console.log("game over?");
             clearInterval(gravity);
+            $(document).off("keydown"); // sluta lyssna på knapptryck när man förlorat
+            // sweet alert med poäng och alternativt börja spela igen
             
             console.log(name + " fick " + points);
+            var player = {userName: name,
+                          userPoints: points
+                         };
+            players.push(player);
+            localStorage.setItem("players", JSON.stringify(players));
             // spara poäng + spelarens namn i localStorage,
             // visa knapp för att starta om? eller visa highscore
             
