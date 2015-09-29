@@ -1,4 +1,6 @@
-
+var name = "";
+var points = 0;
+var gravity;
 //Declare global object tetris
 var tetris = {};
 
@@ -15,8 +17,12 @@ tetris.drawPlayField = function(){
 }
 
 //Variable to store current coordinates --------------------------
+
+// vart första klossen börjar
 tetris.origin = {row:2,col:5};
-tetris.currentShape = 'L';
+// vilket typ av kloss som man börjar med
+tetris.currentShape = 'L'; // slumpa ist?
+
 tetris.currentCoor;
 
 //Fill the cells -------------------------------------------------
@@ -121,8 +127,13 @@ tetris.rotate = function(){
 
 // Definiera tetris-figurer ---------------------------------------------------------
 tetris.shapeToCoor = function(shape,origin){
-	if(shape === 'L'){
-		return [{row:origin.row,col:origin.col},{row:origin.row-1,col:origin.col},{row:origin.row+1,col:origin.col},{row:origin.row+1,col:origin.col+1}]
+	if (shape === 'L') {
+		return [
+            { row: origin.row, col: origin.col },
+            { row: origin.row - 1, col: origin.col },
+            { row: origin.row + 1, col: origin.col },
+            { row: origin.row + 1, col: origin.col + 1 }
+        ];
 	} else if(shape === 'J'){ 
 		return [{row:origin.row,col:origin.col},{row:origin.row-1,col:origin.col},{row:origin.row+1,col:origin.col},{row:origin.row+1,col:origin.col-1}]
 	} else if(shape === 'I'){
@@ -162,6 +173,8 @@ tetris.shapeToCoor = function(shape,origin){
 	} 
 }
 
+
+
 /* Definera figurer OCH hur varje figur ska rotera när upp-tangenten trycks ner */
  
 //Drop shape by one row -----------------------------------------------
@@ -187,9 +200,21 @@ tetris.drop = function(){
 	this.fillCells(this.currentCoor,'black');
 
 	if(reverse){
-		this.fillCells(this.currentCoor,'BLACK');
-		this.emptyFullRow();
-		this.spawn();
+        // game over
+        if (this.origin.row == 2) {
+            console.log("game over?");
+            clearInterval(gravity);
+            
+            console.log(name + " fick " + points);
+            // spara poäng + spelarens namn i localStorage,
+            // visa knapp för att starta om? eller visa highscore
+            
+        } else {
+            console.log("game continues");
+            this.fillCells(this.currentCoor,'BLACK');
+            this.emptyFullRow();
+            this.spawn();
+        }
 	}
 
 }
@@ -247,8 +272,12 @@ tetris.emptyFullRow = function(){
 
 // document.ready function - ska alltid vara längst ner ----------------
 $(document).ready(function(){
-	
 	tetris.drawPlayField();
+	
+})
+
+// startar spelet
+function startGame() {  
 	tetris.currentCoor = tetris.shapeToCoor(tetris.currentShape,tetris.origin);
 	tetris.fillCells(tetris.currentCoor,'black');
 
@@ -265,9 +294,25 @@ $(document).ready(function(){
 		}
 	})
 
-	8
-	var gravity = setInterval(function(){
+	// Global
+	gravity = setInterval(function(){
 		tetris.drop();
+        // skriv ut den nuvarande klossens position (för färger) och positionen på spelplanen (origin)
+        // console.log(tetris.currentCoor, tetris.origin);
 	},500); // Ändra hastigheten här, i millisekunder
+}
 
-})
+var startButton = document.getElementById("start-game");
+
+startButton.addEventListener("click", function() {
+    var username = prompt("Enter your username:");
+    
+    if (username !== null) {
+        // spara det namn personen fyllde i, i den globala variabeln "name"
+        name = username;
+        startGame(); // starta spelet
+    } else {
+        console.log("empty name...");
+    }
+    
+});
