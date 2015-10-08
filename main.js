@@ -309,8 +309,16 @@ function startGame() {
 var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
-    var username = prompt("Enter your username:");
-    
+    var username = swal("What's your name?", "Add your name here...", "input");  
+
+    function(inputValue){
+    if (inputValue === false) 
+    	return false;      
+    if (inputValue === "") {     
+    	swal.showInputError("You need to write something!");     
+    	return false   }
+    }
+    	
     if (username !== null) {
         // spara det namn personen fyllde i, i den globala variabeln "name"
         name = username;
@@ -328,4 +336,7 @@ startButton.addEventListener("click", function() {
      // Här prövar vi biblioteket
       swal("Good job!", "You clicked the button!", "success");
  });
+
+
+
 
