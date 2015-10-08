@@ -304,6 +304,8 @@ function startGame() {
 	},500); // Ändra hastigheten här, i millisekunder
 }
 
+//---------------------- START GAME -------------------------
+
 var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
@@ -319,7 +321,8 @@ startButton.addEventListener("click", function() {
     
 });
 
- var button = document.getElementById("test");
+//---------------------- GAME OVER -------------------------
+ var button = document.getElementById("game-over");
  
  button.addEventListener("click", function() {
      // Här prövar vi biblioteket
