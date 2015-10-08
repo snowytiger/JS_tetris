@@ -309,16 +309,8 @@ function startGame() {
 var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
-    var username = swal("What's your name?", "Add your name here...", "input");  
+    var username = prompt("Enter your username");
 
-    function(inputValue){
-    if (inputValue === false) 
-    	return false;      
-    if (inputValue === "") {     
-    	swal.showInputError("You need to write something!");     
-    	return false   }
-    }
-    	
     if (username !== null) {
         // spara det namn personen fyllde i, i den globala variabeln "name"
         name = username;
