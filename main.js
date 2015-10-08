@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 var players = JSON.parse(localStorage.getItem("players"));
 if (! players) {
     players = [];}
 
 //Global stuff --------------------------------------------------
+=======
+"use strict";
+
+>>>>>>> a29a629612db938c0ca56337f967d4c4c5bf58e2
 var name = "";
 var points = 0;
 var gravity;
@@ -330,3 +335,11 @@ startButton.addEventListener("click", function() {
     }
     
 });
+
+ var button = document.getElementById("test");
+ 
+ button.addEventListener("click", function() {
+     // Här prövar vi biblioteket
+      swal("Good job!", "You clicked the button!", "success");
+ });
+
