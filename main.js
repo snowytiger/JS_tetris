@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-var players = JSON.parse(localStorage.getItem("players"));
-if (! players) {
-    players = [];}
-
-//Global stuff --------------------------------------------------
-=======
 "use strict";
 
->>>>>>> a29a629612db938c0ca56337f967d4c4c5bf58e2
 var name = "";
 var points = 0;
 var gravity;
@@ -211,20 +203,11 @@ tetris.drop = function(){
 
 	if(reverse){
         // game over
-        // lägg till localstorage
-
         if (this.origin.row == 2) {
             console.log("game over?");
             clearInterval(gravity);
-            $(document).off("keydown"); // sluta lyssna på knapptryck när man förlorat
-            // sweet alert med poäng och alternativt börja spela igen
             
             console.log(name + " fick " + points);
-            var player = {userName: name,
-                          userPoints: points
-                         };
-            players.push(player);
-            localStorage.setItem("players", JSON.stringify(players));
             // spara poäng + spelarens namn i localStorage,
             // visa knapp för att starta om? eller visa highscore
             
@@ -321,6 +304,8 @@ function startGame() {
 	},500); // Ändra hastigheten här, i millisekunder
 }
 
+//---------------------- START GAME -------------------------
+
 var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
@@ -336,7 +321,8 @@ startButton.addEventListener("click", function() {
     
 });
 
- var button = document.getElementById("test");
+//---------------------- GAME OVER -------------------------
+ var button = document.getElementById("game-over");
  
  button.addEventListener("click", function() {
      // Här prövar vi biblioteket
