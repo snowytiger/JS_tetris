@@ -1,3 +1,5 @@
+"use strict";
+
 var name = "";
 var points = 0;
 var gravity;
@@ -316,3 +318,11 @@ startButton.addEventListener("click", function() {
     }
     
 });
+
+ var button = document.getElementById("test");
+ 
+ button.addEventListener("click", function() {
+     // Här prövar vi biblioteket
+      swal("Good job!", "You clicked the button!", "success");
+ });
+
