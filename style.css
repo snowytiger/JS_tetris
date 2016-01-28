@@ -5,9 +5,22 @@ body {
 #wrapper {
 	width: 960px;
 	min-height: 400px;
-	background: #fff;
+	background: transparent;
 	margin: 0 auto;
 	margin-top: 40px;
+}
+
+.columns-2 {
+	width: 440px;
+	min-height: 200px;
+	background: #fff;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+}
+
+.clearfix {
+	clear: both;
 }
 
 td {
