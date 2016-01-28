@@ -309,7 +309,7 @@ function startGame() {
 var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
-    var username = prompt("Enter your username");
+    var username = prompt("name");
 
     if (username !== null) {
         // spara det namn personen fyllde i, i den globala variabeln "name"
