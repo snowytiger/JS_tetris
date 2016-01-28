@@ -1,5 +1,13 @@
 "use strict";
 
+var highScores;
+
+if(localStorage.getItem("highScores")) {
+    highScores = JSON.parse(localStorage.getItem("highScores"));
+} else {
+    highScores = [];
+}
+
 var name = "";
 var points = 0;
 var gravity;
@@ -208,6 +216,9 @@ tetris.drop = function(){
             clearInterval(gravity);
             
             console.log(name + " fick " + points);
+            highScores.push({ name: name, points: points });
+            console.log(highScores);
+            localStorage.setItem("highScores", JSON.stringify(highScores));
             // spara poäng + spelarens namn i localStorage,
             // visa knapp för att starta om? eller visa highscore
             
