@@ -216,10 +216,11 @@ tetris.drop = function(){
             clearInterval(gravity);
             
             console.log(name + " fick " + points);
-            highScores.push({ name: name, points: points });
+            highScores.push({ name: name, points: points })
+            //Spara en användarens name i och point highScores i localstorage
             console.log(highScores);
             localStorage.setItem("highScores", JSON.stringify(highScores));
-            // spara poäng + spelarens namn i localStorage,
+            //JSON sparar 
             // visa knapp för att starta om? eller visa highscore
             
         } else {
@@ -279,8 +280,10 @@ tetris.emptyFullRow = function(){
 
 		if(rowIsFull){
 			drops++;
+            
 		}
 	}
+    console.log("variabeln drops innehåller följande", drops)
 }
 
 // document.ready function - ska alltid vara längst ner ----------------
