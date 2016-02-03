@@ -31,3 +31,7 @@ td {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+
+#test {
+color: #000;
+}
