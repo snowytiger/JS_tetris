@@ -9,7 +9,7 @@ if (localStorage.getItem("highScores")) {
 }
 
 var name = "";
-var points = 1;
+var points = 0;
 
 document.getElementById("test").innerHTML = points;
 var gravity;
