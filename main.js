@@ -218,7 +218,7 @@ tetris.drop = function(){
             console.log("game over?");
             clearInterval(gravity);
             
-            console.log(name + " fick " + points);
+            swal("Game over", name + " fick " + points, "success");
             highScores.push({ name: name, points: points })
             //Spara en användarens name i och point highScores i localstorage
             console.log(highScores);
