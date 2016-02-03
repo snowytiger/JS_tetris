@@ -282,8 +282,9 @@ tetris.emptyFullRow = function(){
 		}
 
 		if(rowIsFull){
-			drops++;
-            
+			drops++; // drops = drops + 1
+            points = points + Math.pow(10, drops); //Points använder Math.pow som upphöjer 10 med antal rader i drops
+            document.getElementById("test").innerHTML = points;
 		}
 	}
     console.log("variabeln drops innehåller följande", drops)
