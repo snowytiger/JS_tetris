@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 var highScores;
 
-if(localStorage.getItem("highScores")) {
+if (localStorage.getItem("highScores")) {
     highScores = JSON.parse(localStorage.getItem("highScores"));
 } else {
     highScores = [];
 }
 
 var name = "";
-var points = 0;
+var points = 1;
 
 document.getElementById("test").innerHTML = points;
 var gravity;
@@ -18,7 +18,7 @@ var tetris = {};
 
 
 //Draw the grid --------------------------------------------------
-tetris.drawPlayField = function(){
+tetris.drawPlayField = function () {
   
   for(var row = 0; row < 22; row++){
     $('#playfield').append('<tr class="' + row + '"></tr>');
