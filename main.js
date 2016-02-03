@@ -10,9 +10,12 @@ if(localStorage.getItem("highScores")) {
 
 var name = "";
 var points = 0;
+
+document.getElementById("test").innerHTML = points;
 var gravity;
 //Declare global object tetris
 var tetris = {};
+
 
 //Draw the grid --------------------------------------------------
 tetris.drawPlayField = function(){
