@@ -218,8 +218,12 @@ tetris.drop = function(){
             console.log("game over?");
             clearInterval(gravity);
             
-            swal("Game over", name + " fick " + points, "success");
+            swal("Game over", name + " fick " + points, "error");
+            if (confirm("Successful message")) {
+            window.location.reload();
             highScores.push({ name: name, points: points })
+            };
+            
             //Spara en användarens name i och point highScores i localstorage
             console.log(highScores);
             localStorage.setItem("highScores", JSON.stringify(highScores));
