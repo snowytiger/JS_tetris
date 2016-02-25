@@ -218,7 +218,7 @@ tetris.drop = function(){
             console.log("game over?");
             clearInterval(gravity);
             
-            swal("Game over", name + " fick " + points, "success");
+            swal("Game over", name + " fick " + points, "error");
             highScores.push({ name: name, points: points })
             //Spara en användarens name i och point highScores i localstorage
             console.log(highScores);
@@ -328,7 +328,7 @@ var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
     var username = prompt("name");
-
+    
     if (username !== null) {
         // spara det namn personen fyllde i, i den globala variabeln "name"
         name = username;
