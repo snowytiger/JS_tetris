@@ -8,6 +8,30 @@ if (localStorage.getItem("highScores")) {
     highScores = [];
 }
 
+//---------------------- SHOW POINTS -----------------------
+
+var showPoints = function(highScores){
+    var ul = document.getElementById("highScoreList");
+    
+    ul.innerHTML = "";
+    
+    for (var i = 0; i < highScores.length; i++){
+        console.log(highScores[i])
+        var li = document.createElement("li");
+        li.textContent = "Name: " + highScores[i].name + " Points: " + highScores[i].points;
+        ul.appendChild(li);
+    }
+}
+
+var lastTenPlayers = highScores.sort(function(a,b){
+    if (a.points < b.points) {
+        return 1;
+    } else {
+        return -1;
+    } 
+}).slice(0,10);
+showPoints(lastTenPlayers);
+
 var name = "";
 var points = 0;
 
@@ -218,17 +242,25 @@ tetris.drop = function(){
             console.log("game over?");
             clearInterval(gravity);
             
-            swal("Game over", name + " fick " + points, "error");
-            if (confirm("Successful message")) {
-            window.location.reload();
-            highScores.push({ name: name, points: points })
-            };
+            highScores.push({ name: name, points: points });
             
             //Spara en användarens name i och point highScores i localstorage
             console.log(highScores);
             localStorage.setItem("highScores", JSON.stringify(highScores));
             //JSON sparar 
             // visa knapp för att starta om? eller visa highscore
+            
+            swal({
+                title: "Game over",
+                text: name + " fick " + points + " poäng",
+                confirmButtonText: "Spela igen!",
+                showCancelButton: true,
+                cancelButtonText: "Nej tack!"
+            }, function(){
+                window.location.reload();
+            });
+
+            
             
         } else {
             console.log("game continues");
@@ -332,7 +364,7 @@ var startButton = document.getElementById("start-game");
 
 startButton.addEventListener("click", function() {
     var username = prompt("name");
-
+    
     if (username !== null) {
         // spara det namn personen fyllde i, i den globala variabeln "name"
         name = username;
@@ -350,7 +382,5 @@ startButton.addEventListener("click", function() {
      // Här prövar vi biblioteket
       swal("Good job!", "You clicked the button!", "success");
  });
-
-
 
 
