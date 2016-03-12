@@ -1,22 +1,61 @@
-body {
-	background-color: black;
+html { 
+  background: url(pictures/background_tetris.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
 }
 
 #wrapper {
-	width: 960px;
-	min-height: 400px;
+	width: 900px;
+	min-height: 1000px;
 	background: transparent;
 	margin: 0 auto;
-	margin-top: 40px;
+	margin-top: 60px;
+}
+
+#header {
+    width: inherit;
+    height: auto;
+    background: transparent;
+}
+
+.columns-1 {
+	width: 890px;
+	min-height: 650px;
+	background: #fff;
+	margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
 }
 
 .columns-2 {
-	width: 440px;
+	width: 260px;
 	min-height: 200px;
-	background: #fff;
-	margin: 10px;
-	padding: 10px;
+	background: transparent;
+	margin: 0 auto;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 	float: left;
+}
+
+.columns-3 {
+	width: 230px;
+	min-height: 170px;
+	background: transparent;
+	margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+	float: left;
+}
+
+.column-left {
+    margin-left: 25px;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .clearfix {
@@ -26,12 +65,76 @@ body {
 td {
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  border: 1px solid #000;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+/*------------ PLAYFIELD -------------------*/
+#playfield {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*------------ BUTTON -------------------*/
+#start-game {
+    border: 3px solid #000;
+    font-family: 'Passion One', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #000;
+    background: transparent;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#start-game:hover {
+    border: 3px solid #fff;
+    color: #fff;
+}
+
 
 #test {
-color: #000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 40px;
+    margin-top: -20px;
+    color: #000;
+}
+
+
+/*------------ FONTS -------------------*/
+h1 {
+    font-family: 'Passion One', cursive;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Roboto Slab', serif;
+}
+
+#welcome-text {
+    font-size: 13px;
+    margin-top: -20px;
+    text-align: justify;
+}
+
+ol {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin-top: -20px;
+}
+
+/*------------ PICTURES -------------------*/
+
+#headerPicture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
 }

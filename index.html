@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="sweetalert.css">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:100' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <title>Sweet Tetris</title>
 
@@ -11,27 +13,38 @@
 <body>
     
 	<div id="wrapper">
+        <div id="header">
+            <img id="headerPicture" src="pictures/header_tetris2.png">
+            <button id="start-game" type="button">start game</button>
+        </div><!--- end header ---->
+        
 		<div class="clearfix">
+           <div class="columns-1">
+               <div class="columns-3 column-left">
+                       <h1>Welcome</h1>
+                   <p id="welcome-text">This is a game, created for you. <br>The rules are simple, arrange the figures so that they form a straight line, one line eguals a certain point and you will be rewarded with points for every finished line. 
+                   <br><br>If you play your cards right, you'r name will appear on the top ten players.
+                   <br><br>Good luck.</p>
+                    </div><!--- end columns-3 ---->
+               
+                    <div class="columns-2">
+                    <table id="playfield">
+                    </table>
+                    </div><!--- end columns-2 ---->
 
-		<div class="columns-2">
-		<button id="start-game" type="button">start</button>
+                    
+                    
+                    <div class="columns-3">
+                        <h1>Highscore</h1>
+                        <ol id="highScoreList"></ol>
+                        <br>
+                         <h1>Your score</h1>
+                        <p id="test"></p>
+                    </div><!--- end columns-3 ---->
 
-		<table id="playfield">
-		</table>
-
-		 <button type="button" id="game-over">Click me!</button>
-		</div>
-
-		<div class="columns-2">
-			<h1>Your score</h1>
-            <p id="test"></p>
-            <h1>Highscore</h1>
-            <ul id="highScoreList"></ul>
-            
-		</div>
-
-		</div>
-	</div>
+            </div><!--- end columns-1 ---->
+		</div><!--- end clearfix ---->
+	</div><!--- end wrapper ---->
     <!-- Include main.js -->
     <script src="js/sweetalert.min.js"></script>
 	<script src="main.js"></script>

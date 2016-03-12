@@ -18,7 +18,7 @@ var showPoints = function(highScores){
     for (var i = 0; i < highScores.length; i++){
         console.log(highScores[i])
         var li = document.createElement("li");
-        li.textContent = "Name: " + highScores[i].name + " Points: " + highScores[i].points;
+        li.textContent = highScores[i].name + " - " + highScores[i].points;
         ul.appendChild(li);
     }
 }
