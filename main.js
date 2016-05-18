@@ -375,6 +375,14 @@ startButton.addEventListener("click", function() {
     
 });
 
+//---------------------- REFRESH GAME -------------------------
+
+var refreshButton = document.getElementById("reload-game");
+
+refreshButton.addEventListener("click", function() {
+onClick=window.location.reload()
+});
+
 //---------------------- GAME OVER -------------------------
  var button = document.getElementById("game-over");
  
