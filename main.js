@@ -473,12 +473,4 @@ refreshButton.addEventListener( "click", function() {
 onClick=window.location.reload()
 });
 
-//---------------------- GAME OVER -------------------------
- var button = document.getElementById( "game-over" );
- 
- button.addEventListener( "click", function() {
-     // Här prövar vi biblioteket
-      swal ( "Good job!", "You clicked the button!", "success" );
- });
-
 
